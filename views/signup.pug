@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h1 #{title} Form 
+  form(action="/signup" method="POST")
+    .form-block
+      label(for="username") Username
+      input(id="username" name="username" placeholder="username" type="text")
+    .form-block
+      label(for="password") Password
+      input(id="password" name="password" placeholder="password" type="password")
+    .form-block
+      label(for="password-confirm") Confirm password
+      input(id="password-confirm" name="password-confirm" placeholder="password" type="password")
+    button.submit Sign up
+
+  each error in errors
+    p=error.msg

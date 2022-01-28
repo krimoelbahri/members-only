@@ -1,5 +1,9 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  each message in messages_list
+    .message-card
+      h1 #{message.title}
+      p #{message.body}
+  else
+    h1 No messages  

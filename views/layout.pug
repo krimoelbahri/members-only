@@ -2,6 +2,31 @@ doctype html
 html
   head
     title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    link(rel='stylesheet' href='/stylesheets/style.css')
   body
+    header
+      block header
+      nav
+        a(href="/") 
+          h1#logo ELBAHRI-Club
+        ul
+          if !currentUser
+            li 
+              a(href="/login") 
+                p Log-in
+            li 
+              a(href="/signup") 
+                p Sign-up
+          else
+            li
+              a(href="/member")
+                p Become a member
+            li
+              a(href="/admin")
+                p Become an admin
+            li
+              a(href="/logout")
+                p Log out
     block content
