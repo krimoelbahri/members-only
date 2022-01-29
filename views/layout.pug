@@ -19,14 +19,17 @@ html
             li 
               a(href="/signup") 
                 p Sign-up
-          else
-            li
-              a(href="/member")
-                p Become a member
-            li
-              a(href="/admin")
-                p Become an admin
+          else       
+            if currentUser.membership === "user"
+              li
+                a(href="/member")
+                  p Become a member
+            if currentUser.membership === "member"
+              li
+                a(href="/admin")
+                  p Become an admin
             li
               a(href="/logout")
                 p Log out
-    block content
+    main
+      block content
