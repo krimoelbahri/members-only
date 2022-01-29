@@ -1,9 +1,23 @@
 extends layout
 
 block content
-  each message in messages_list
+  if currentUser 
+    a(href="/message")
+      button Add Message
+  each message in message_list
     .message-card
       h1 #{message.title}
       p #{message.body}
+      .author
+        if currentUser && currentUser.membership != "user"
+          h4 Author:
+            p #{message.author.username}
+          h4 #{message.date}
+        else
+          h4 Author: 
+          p Anonymous
+      if currentUser && currentUser.membership === "admin"
+        .delete-card
+          a(href=`/delete/${message._id}`)
   else
     h1 No messages  
