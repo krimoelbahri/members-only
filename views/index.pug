@@ -3,17 +3,18 @@ extends layout
 block content
   if currentUser 
     a(href="/message")
-      button Add Message
+      button.submit Add Message
   each message in message_list
     .message-card
-      h1 #{message.title}
+      h3 #{message.title}
       p #{message.body}
-      .author
-        if currentUser && currentUser.membership != "user"
+      if currentUser && currentUser.membership != "user"
+        .author
           h4 Author:
-            p #{message.author.username}
-          h4 #{message.date}
-        else
+          p #{message.author.username}
+        h4 #{message.date.toDateString()}
+      else
+        .author
           h4 Author: 
           p Anonymous
       if currentUser && currentUser.membership === "admin"

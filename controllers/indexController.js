@@ -44,7 +44,7 @@ exports.signup = function (req, res) {
 	if (req.user) {
 		res.redirect("/");
 	}
-	res.render("signup", { title: "signup", errors: [] });
+	res.render("signup", { title: "signup" });
 };
 exports.delete = function (req, res, next) {
 	Message.findByIdAndRemove(req.params.id, {}, function (err) {

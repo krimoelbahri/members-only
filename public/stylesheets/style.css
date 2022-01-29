@@ -1,8 +1,137 @@
+/*---------------------RESET------------------*/
+html,
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+	width: 100%;
+	height: 100%;
 }
-
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+ul,
+ol {
+	list-style: none;
+}
 a {
-  color: #00B7FF;
+	color: inherit;
+	text-decoration: none;
 }
+/*-----------------GENERAL STYLING----------------*/
+header {
+	height: 100px;
+	width: 100%;
+	background-color: #8cd0e3;
+	color: whitesmoke;
+	position: fixed;
+	display: flex;
+	align-items: center;
+	text-align: center;
+	justify-content: center;
+}
+nav {
+	width: 90%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+nav ul {
+	width: 200px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+}
+main {
+	background-color: #f2f7ff;
+	width: 100%;
+	padding: 15px;
+	min-height: calc(100% - 100px);
+	position: relative;
+	top: 100px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+form {
+	width: 50%;
+	padding: 15px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+}
+form .form-block {
+	width: 60%;
+	min-height: 55px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+form input {
+	outline: none;
+	height: 25px;
+	padding-left: 10px;
+	border: 1px solid #8cd0e3;
+	border-radius: 3px;
+	background-color: #f2f7ff;
+}
+form textarea {
+	outline: none;
+	min-height: 80px;
+	padding: 5px 10px;
+	border: 1px solid #8cd0e3;
+	border-radius: 3px;
+	background-color: #f2f7ff;
+}
+button {
+	padding: 7px 15px;
+	margin: 15px 0px;
+	font: inherit;
+	border: 1px solid;
+	border-radius: 5px;
+	cursor: pointer;
+}
+button.submit {
+	color: ivory;
+	background-color: #8cd0e3;
+}
+button.delete {
+	color: red;
+	background-color: #f2f7ff;
+}
+.error {
+	color: red;
+	font-size: 16px;
+	margin: 3px;
+}
+/*---------------------INDEX file------------*/
+.message-card {
+	width: 50%;
+	margin-bottom: 15px;
+	padding: 15px;
+	border: 2px dashed black;
+	border-radius: 5px;
+	display: flex;
+	flex-direction: column;
+}
+.message-card .author {
+	display: flex;
+	flex-direction: row;
+}
+.message-card .delete-card {
+	align-self: center;
+}
+.message-card h3 {
+	text-decoration: underline;
+	text-decoration-style: wavy;
+	margin-bottom: 7px;
+}
+.message-card * {
+	margin: 3px 0;
+}
+.message-card .author * {
+	margin-right: 10px;
+}
+/*-------------------LOGIN-------------------*/

@@ -1,13 +1,16 @@
 extends layout
 
 block content
+  h1 #{title} Form 
   form(action="/message" method="POST")
-    label(for="title")
-    input(id="title" name="title" type="text")
-    label(for="message")
-    textarea(id="message" name="message" )
+    .form-block
+      label(for="title") Title
+      input(id="title" name="title" type="text")
+    .form-block
+      label(for="message") Message
+      textarea(id="message" name="message" )
     button.submit(type="submit") Submit Message
 
   if errors
     each error in errors
-      p=error.msg
+      p.error #{error.msg}

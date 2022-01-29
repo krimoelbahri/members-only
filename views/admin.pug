@@ -2,6 +2,9 @@ extends layout
 
 block content
   form(action="/admin" method="POST")
-    label(for="admin") Enter admin password HINT: ------
-    input(id="admin" name="admin" type="password" required)
+    .form-block
+      label(for="admin") Enter admin password HINT: ------
+      input(id="admin" name="admin" type="password" required)
     button.submit Submit
+  if message
+    p.error #{message}
