@@ -13,6 +13,6 @@ block content
       label(for="password-confirm") Confirm password
       input(id="password-confirm" name="password-confirm" placeholder="password" type="password")
     button.submit Sign up
-
-  each error in errors
-    p=error.msg
+  if errors
+    each error in errors
+      p=error.msg
