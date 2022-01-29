@@ -47,7 +47,12 @@ exports.signup = function (req, res) {
 	res.render("signup", { title: "signup", errors: [] });
 };
 exports.delete = function (req, res, next) {
-	res.render("admin", { title: "Elbahri club" });
+	Message.findByIdAndRemove(req.params.id, {}, function (err) {
+		if (err) {
+			return next(err);
+		}
+		res.redirect("/");
+	});
 };
 exports.logout = function (req, res) {
 	req.logout();
@@ -144,9 +149,25 @@ exports.addMessage_post = [
 ];
 
 exports.admin_post = function (req, res, next) {
-	res.render("admin", { title: "Elbahri club" });
+	if (req.body.admin === "admin") {
+		User.findByIdAndUpdate(req.user._id, { membership: "admin" }, {}, function (err) {
+			if (err) {
+				return next(err);
+			}
+			res.redirect("/");
+		});
+	}
+	res.render("admin", { title: "Become an admin", message: "Wrong admin password" });
 };
 
 exports.member_post = function (req, res, next) {
-	res.render("admin", { title: "Elbahri club" });
+	if (req.body.member === "member") {
+		User.findByIdAndUpdate(req.user._id, { membership: "member" }, {}, function (err) {
+			if (err) {
+				return next(err);
+			}
+			res.redirect("/");
+		});
+	}
+	res.render("member", { title: "Become a member", message: "Wrong member password" });
 };
