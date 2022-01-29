@@ -1,0 +1,7 @@
+extends layout
+
+block content
+  form(action="/admin" method="POST")
+    label(for="admin") Enter admin password HINT: ------
+    input(id="admin" name="admin" type="text" required)
+    button.submit Submit
