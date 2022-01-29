@@ -19,5 +19,6 @@ block content
       if currentUser && currentUser.membership === "admin"
         .delete-card
           a(href=`/delete/${message._id}`)
+            button.delete Delete Message
   else
     h1 No messages  
