@@ -7,6 +7,8 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var mongoose = require("mongoose");
 require("dotenv").config();
+var compression = require("compression");
+var helmet = require("helmet");
 
 var indexRouter = require("./routes/index");
 var authController = require("./controllers/authController");
@@ -19,6 +21,8 @@ mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 var db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
+app.use(helmet());
+app.use(compression());
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
